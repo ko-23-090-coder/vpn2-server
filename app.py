@@ -22,8 +22,8 @@ def login():
     if attempts >= 5:
         return jsonify({"error": "Too many attempts"}), 429
 
-    username = data.get("username", "")
-    password = data.get("password", "")
+    username = data.get("username") or data.get("login") or ""
+password = data.get("password") or data.get("pass") or ""
     otp = data.get("otp", "")
 
     if username != USERNAME or password != PASSWORD:
